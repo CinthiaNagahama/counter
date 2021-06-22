@@ -1,7 +1,40 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(Container(
-    color: Colors.purple,
-  ));
+  runApp(MaterialApp(
+      theme: ThemeData(primarySwatch: Colors.deepPurple), home: HomePage()));
+}
+
+class HomePage extends StatefulWidget {
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  int count = 0;
+  void incrementsCounter() {
+    count++;
+    setState(() {});
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Contador"),
+      ),
+      body: Center(
+        child: Text(
+          "CONTADOR\n$count",
+          textAlign: TextAlign.center,
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add),
+        onPressed: () {
+          incrementsCounter();
+        },
+      ),
+    );
+  }
 }
